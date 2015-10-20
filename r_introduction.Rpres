@@ -1,0 +1,143 @@
+Introduction to R
+========================================================
+author: Joshua Rosenberg and Alex Lishinski
+date: 10/23/2015
+
+ARRR Matey (Alex)
+========================================================
+
+- How we came to R
+- Why we love R
+- Why we think you will love R, too
+
+What's an object and how do I make one? (Josh)
+========================================================
+
+This is code (syntax):
+
+```{r, eval = F}
+c() # makes a vector
+: # makes a sequence
+```
+
+Let's make a vector of the numbers 1 to 10:
+
+```{r}
+my_vector <- c(1:10)
+```
+
+This is the result of typing the name of "my_vector":
+```{r}
+my_vector
+```
+
+Let's read something (Josh)
+========================================================
+
+```{r}
+setwd("~/desktop")
+my_data <- read.csv("r_introduction.csv", row.names = 1)
+head(my_data)
+```
+
+What's this thing? (Josh)
+========================================================
+
+```{r, eval = F}
+- ? # this is to find out what a function does
+- str() # this is to find out the 'structure' of anything
+- View() # this allows you to view a data frame (think spreadsheet) or matrix
+- class() # this tells you what kind of object this is
+``` 
+
+How do I pick just one part of this thing? (Alex)
+========================================================
+
+```{r}
+my_data[1, ] # just the first row 
+
+# my_data[, 1] # just the first column
+
+# head(my_data) # first six rows
+
+# tail(my_data) # last six rows
+
+```
+
+How do I do some basic statistics (Josh)
+========================================================
+
+```{r}
+mean(my_data$math) # mean of continuous variable
+sd(my_data$math) # standard deviation of continous variable
+table(my_data$Race) # counts frequencies and creates a table
+```
+
+How do I do some more advanced statistics? (Josh)
+========================================================
+
+```{r, eval = F}
+library(psych)
+describe(my_data) # try it on your own!
+```
+
+The mighty lm() for linear models (i.e., regression) (Alex)
+========================================================
+
+```{r, eval = F}
+library(wakefield)
+
+my_data <- r_data_frame(n = 150,
+                        id, 
+                        race,
+                        age, 
+                        sex,
+                        math = rnorm(mean = 70),
+                        per_comp = rnorm,
+                        val = rnorm)
+
+write.csv(my_data, "r_introduction.csv")
+str(my_data)
+
+library(psych)
+describe(my_data) # try it on your own!
+```
+
+
+What is a package and how do I install them? (Josh)
+========================================================
+
+Here's how to install a package:
+```{r, eval = F}
+install.packages("ggplot2")
+```
+
+Here's how to use a package (must do every time you use R):
+```{r}
+library(ggplot2)
+```
+
+What are some helpful packages? (Alex)
+========================================================
+
+```{r}
+library(ggplot2)
+library(dplyr) 
+library(psych) 
+library(Hmisc)
+library(foreign) 
+library(lubridate) 
+```
+
+What are some other things we can do? (Alex & Josh)
+========================================================
+
+```{r}
+library(lavaan) # SEM
+library(lme4) # HLM 
+library(tm) & library(quanteda) # text analysis / text mining
+library(matchit) # PSM
+library(caret) # machine learning 
+library(igraph) # social network analysis
+```
+
