@@ -3,7 +3,7 @@ Introduction to R
 author: Joshua Rosenberg and Alex Lishinski
 date: 10/23/2015
 
-ARRR Matey (Alex)
+ARRR Matey
 ========================================================
 
 ### Why we love R and Why we think you will love R, too
@@ -30,13 +30,15 @@ Why we love R
 Why we love R
 =========================================================
 
-* R is effectively platform independent.  For those of us who use Linux/Mac and work with people who use windows, it’s a tremendous advantage.
+* R is effectively platform independent.  For Linux/Mac users that work with people who use windows, this is helpful.
 
 * R is used by practitioners in a plethora of academic disciplines.  R users come from myriad industries and academic departments.
 
 * R makes you think.  Being forced to code a procedure by hand, though more time consuming, helps make it “stick”.
 
-What's an object and how do I make one? (Josh)
+* All encompasing. there's probably already an R package for whatever you'll ever do with data, no need for many different softwares.
+
+What's an object and how do I make one?
 ========================================================
 
 This is code (syntax):
@@ -57,7 +59,7 @@ This is the result of typing the name of "my_vector":
 my_vector
 ```
 
-Let's read something (Josh)
+Let's read something
 ========================================================
 
 ```{r, eval = F}
@@ -67,7 +69,7 @@ head(my_data)
 ```
 
 
-What is a package and how do I install them? (Josh)
+What is a package and how do I install them?
 ========================================================
 
 Here's how to install a package:
@@ -80,8 +82,10 @@ Here's how to use a package (must do every time you use R):
 library(ggplot2)
 ```
 
-What are some helpful packages? (Alex)
+What are some helpful packages?
 ========================================================
+
+There are over 7000 packages, covering pretty much every topic you'd want
 
 ```{r, eval = F}
 # Great plotting functionality
@@ -98,7 +102,7 @@ library(foreign)
 library(lubridate)
 ```
 
-What's this thing? (Josh)
+What's this thing?
 ========================================================
 
 ```{r, eval = F}
@@ -119,7 +123,7 @@ read.csv("filename.csv", header = F)
 haven::read_sav("filename.sav")
 ```
 
-How do I pick just one part of this thing? (Alex)
+How do I pick just one part of this thing?
 ========================================================
 
 ```{r, eval = F}
@@ -147,10 +151,9 @@ vignette(package = "dplyr")
 vignette("introduction", package = "dplyr")
 
 dplyr::arrange(my_data, ) # arrange data by a variable
-
 ```
 
-How do I do some basic statistics (Josh)
+How do I do some basic statistics?
 ========================================================
 
 Basic Descriptives
@@ -227,3 +230,28 @@ library(caret) # machine learning
 library(igraph) # social network analysis
 ```
 
+Rmarkdown & knitr
+=========================================================
+
+Rmarkdown documents are documents that include plain text that can be styled with very simple syntax as well as executable R code
+
+This presentation was made from an R markdown document
+
+R markdown documents can be turned into nice looking pdf, word, and html files
+
+Makes sharing results extremely easy
+
+* Easy to make changes and rerun analyses
+* No cutting and pasting values and tables
+* Less time wasted formatting documents
+
+Conclusion
+======================================================
+
+What you should take away from this?
+
+* R is awesome
+* There is a learning curve
+* Everyone I know who waited to start R regrets it
+* All the cool kids are using it
+* Nobody can ever take it away from you
