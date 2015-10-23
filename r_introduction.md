@@ -1,7 +1,6 @@
 Introduction to R
 ========================================================
-author: Joshua Rosenberg and Alex Lishinski
-date: 10/23/2015
+author: Joshua Rosenberg (jrosen@msu.edu) and Alex Lishinski (lishinsk@msu.edu)
 
 ARRR Matey (Alex)
 ========================================================
@@ -64,18 +63,63 @@ my_vector
  [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
-Let's read something (Josh)
+What is this thing?
 ========================================================
 
 
 ```r
-setwd("~/desktop")
-my_data <- read.csv("r_introduction.csv", row.names = 1)
-head(my_data)
+- ? # this is to find out what a function does
+- str() # this is to find out the 'structure' of anything
+- View() # this allows you to view a data frame (think spreadsheet) or matrix
+- class() # this tells you what kind of object this is
 ```
 
+How do I get my data in?
+========================================================
 
-What is a package and how do I install them? (Josh)
+Examples of loading data for different sorts of files
+
+
+```r
+readxl::read_excel("filename.xlsx") # XLS / XLSX
+haven::read_sav("filename.sav") # SPSS
+read.csv("filename.csv", header = F) # CSV
+```
+
+Here's how to write a CSV
+
+
+```r
+write.csv("filename.csv") # CSV
+```
+
+How do I pick just one part of this thing?
+========================================================
+
+
+```r
+my_data[1, ] # just the first row of data frame
+
+my_data[, 1] # just the first column of data frame
+
+head(my_data) # first six rows of data frame
+
+tail(my_data) # last six rows of data frame
+```
+
+How do I do some basic statistics
+========================================================
+
+Basic Descriptives
+
+
+```r
+mean(my_data$math) # mean of continuous variable
+sd(my_data$math) # standard deviation of continous variable
+table(my_data$Race) # counts frequencies and creates a table
+```
+
+What is a package and how do I install them?
 ========================================================
 
 Here's how to install a package:
@@ -109,43 +153,6 @@ library(foreign)
 library(lubridate)
 ```
 
-What's this thing? (Josh)
-========================================================
-
-
-```r
-- ? # this is to find out what a function does
-- str() # this is to find out the 'structure' of anything
-- View() # this allows you to view a data frame (think spreadsheet) or matrix
-- class() # this tells you what kind of object this is
-```
-
-How do I get my data in?
-========================================================
-
-Examples of loading data for different sorts of files
-
-
-```r
-readxl::read_excel("filename.xlsx")
-read.csv("filename.csv", header = F)
-haven::read_sav("filename.sav")
-```
-
-How do I pick just one part of this thing? (Alex)
-========================================================
-
-
-```r
-my_data[1, ] # just the first row of data frame
-
-my_data[, 1] # just the first column of data frame
-
-head(my_data) # first six rows of data frame
-
-tail(my_data) # last six rows of data frame
-```
-
 dplyr is a very useful package for data manipulation
 ========================================================
 
@@ -162,26 +169,6 @@ vignette(package = "dplyr")
 vignette("introduction", package = "dplyr")
 
 dplyr::arrange(my_data, ) # arrange data by a variable
-```
-
-How do I do some basic statistics (Josh)
-========================================================
-
-Basic Descriptives
-
-
-```r
-mean(my_data$math) # mean of continuous variable
-sd(my_data$math) # standard deviation of continous variable
-table(my_data$Race) # counts frequencies and creates a table
-```
-
-Descriptives table from psych
-
-
-```r
-library(psych)
-describe(my_data) # try it on your own!
 ```
 
 Worked Example
@@ -295,16 +282,67 @@ assumps <- AutoModel::assumptions_check(model)
 assumps
 ```
 
-What are some other things we can do? (Alex & Josh)
+What is a package and how do I install them?
+========================================================
+
+Here's how to install a package:
+
+```r
+install.packages("ggplot2")
+```
+
+Here's how to use a package (must do every time you use R):
+
+```r
+library(ggplot2)
+```
+
+What are some helpful packages?
+========================================================
+
+
+```r
+# Great plotting functionality
+library(ggplot2)
+# Great data manipulation
+library(dplyr)
+# A number of basic statistical procedures you will want to use
+library(psych)
+# Miscellaneous functions that are quite useful
+library(Hmisc)
+# Importing data from other file formats, like .sav
+library(foreign)
+# Deal with dates in your data
+library(lubridate)
+```
+
+What are some other things we can do?
 ========================================================
 
 
 ```r
 library(lavaan) # SEM
 library(lme4) # HLM
-library(tm) & library(quanteda) # text analysis / text mining
+library(tm) & library(quanteda) # Text analysis / Text mining
 library(matchit) # PSM
-library(caret) # machine learning
-library(igraph) # social network analysis
+library(caret) # Machine learning
+library(igraph) # Social network analysis
 ```
+
+Additional resources
+========================================================
+
+* [Quick-R](http://statmethods.net)
+
+* [R Studio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
+
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/r)
+
+* [#rstats](https://twitter.com/search?q=rstats&src=typd)
+
+* Books: [Matloff (2011)](http://www.amazon.com/Art-Programming-Statistical-Software-Design/dp/1593273843/ref=sr_1_1?ie=UTF8&qid=1445609145&sr=8-1&keywords=matloff+r), [Lander (2013)](http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/0321888030/ref=sr_1_1?ie=UTF8&qid=1445609160&sr=8-1&keywords=lander+r), [Grolemund & Wickham (2014)](http://www.amazon.com/Hands--Programming-Write-Functions-Simulations/dp/1449359019/ref=sr_1_1?ie=UTF8&qid=1445609180&sr=8-1&keywords=grolemund+wickham)
+
+* This presentation is available at [http://rpubs.com/jmichaelrosenberg/introduction-to-R](http://rpubs.com/jmichaelrosenberg/introduction-to-R)
+
+
 
